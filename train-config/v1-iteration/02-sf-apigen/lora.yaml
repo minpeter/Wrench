@@ -16,6 +16,7 @@ datasets:
     message_property_mappings:
       role: role
       content: content
+    shards: 3
 chat_template: chatml
 
 dataset_prepared_path: last_run_prepared
