@@ -1,5 +1,5 @@
-base_model: minpeter/HCX-SEED-FC-3B
-hub_model_id: minpeter/LoRA-HCX-3b-sf-xlam-00
+base_model: minpeter/HyperCLOVAX-SEED-Text-Instruct-3B-hf
+hub_model_id: minpeter/LoRA-HCX-3b-sf-xlam-01
 
 load_in_8bit: false
 load_in_4bit: false
@@ -47,6 +47,17 @@ datasets:
       role: from
       content: value
     shards: 5
+  - path: minpeter/apigen-mt-5k-friendli
+    data_files:
+      - train.jsonl
+      - test.jsonl
+    type: chat_template
+    roles_to_train: ["assistant"]
+    field_messages: messages
+    message_property_mappings:
+      role: role
+      content: content
+    shards: 10
 chat_template: chatml
 
 dataset_prepared_path: last_run_prepared
